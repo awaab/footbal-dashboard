@@ -1,6 +1,8 @@
 import React from 'react';
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
+import { connect } from "react-redux";
+import { editOptionOne, editOptionTwo } from "../redux/actions";
 
 const options_one = [
     {"value": 1, "label": "one"},
@@ -13,11 +15,13 @@ const options_two = [
     {"value": 3, "label": "HIJ"},
 ];
 class Sidebarmenu extends React.Component {
-    onSelectOne = function(selction){
-        console.log("One selected: ", selction.value)
+    onSelectOne = (selction) => {
+        console.log("One selected: ", selction.value);
+        this.props.editOptionOne(selction.value);
     }
-    onSelectTwo = function(selction){
-        console.log("Two selected: ", selction.value)
+    onSelectTwo = (selction) => {
+        console.log("Two selected: ", selction.value);
+        this.props.editOptionTwo(selction.value);
     }
     render() {
       return (
@@ -29,4 +33,8 @@ class Sidebarmenu extends React.Component {
     }
 }
 
-export default Sidebarmenu;
+
+export default connect(
+    null,
+    { editOptionOne, editOptionTwo }
+)(Sidebarmenu)

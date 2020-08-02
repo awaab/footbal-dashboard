@@ -1,0 +1,2 @@
+export const EDIT_OPTION_ONE = "EDIT_OPTION_ONE";
+export const EDIT_OPTION_TWO = "EDIT_OPTION_TWO";
